@@ -14,7 +14,11 @@ imputer = SimpleImputer(missing_values=np.nan,strategy='mean')
 imputer.fit(x[:,1:3])
 x[:, 1:3] = imputer.transform(x[:,1:3])
 
-#Encoding The labels
+#Encoding the indepent Variables
+ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
+x = np.array(ct.fit_transform(x))
+
+#Encoding the dependent Variables
 label = LabelEncoder()
 y = label.fit_transform(y)
 
