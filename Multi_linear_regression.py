@@ -26,6 +26,12 @@ regressor = LinearRegression()
 
 regressor.fit(x_train,y_train)
 
+#Comparing the predicted value with the actual Value
+np.set_printoptions(2)
+
 y_predict = regressor.predict(x_test)
 
-#Comparing the predicted value with the actual Value 
+concatenate = np.concatenate((y_predict.reshape(len(y_predict),1), y_test.reshape(len(y_test),1)), 1)
+
+print(concatenate)
+
