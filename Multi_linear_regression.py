@@ -27,11 +27,17 @@ regressor = LinearRegression()
 regressor.fit(x_train,y_train)
 
 #Comparing the predicted value with the actual Value
-np.set_printoptions(2)
+# np.set_printoptions(2)
 
 y_predict = regressor.predict(x_test)
 
 concatenate = np.concatenate((y_predict.reshape(len(y_predict),1), y_test.reshape(len(y_test),1)), 1)
-
 print(concatenate)
 
+#Printing individual
+# print(x_test)
+# print(regressor.predict([[0.0, 1.0, 0.0, 66051.52, 182645.56, 118148.2]]))
+
+# Printing Coefficient
+# print(regressor.coef_)
+# print(regressor.intercept_)
